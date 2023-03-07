@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous">
+    <link rel="shortcut icon" href="#" type="image/x-icon">
     <title>Kenergy</title>
 </head>
 <body>
-    
+    <div class="container mt-5">
+        <h1>Solar Panel Savings Calculator</h1>
+        <form>
+          <div class="form-group">
+            <label for="monthly-bill">Monthly Electric Bill:</label>
+            <input type="number" class="form-control" id="monthly-bill" placeholder="Enter your monthly electric bill">
+          </div>
+          <div class="form-group">
+            <label for="monthly-usage">Monthly Kilowatt Hour Usage:</label>
+            <input type="number" class="form-control" id="monthly-usage" placeholder="Enter your monthly kilowatt hour usage">
+          </div>
+          <button type="button" class="btn btn-primary m-3" onclick="calculate()">Calculate</button>
+        </form>
+        
+        <div id="results" class="mt-5 d-none">
+          <h2>Results</h2>
+          <p>Number of solar panels required: <span id="num-panels"></span></p>
+          <p>Total roof area required: <span id="roof-area"></span> square feet</p>
+          <p>Amount saved per month: ₱<span id="savings"></span></p>
+        </div>
+      </div>
+      <script>
+        function calculate() {
+    // Get the input values
+    const monthlyBill = Number(document.getElementById('monthly-bill').value);
+    const monthlyUsage = Number(document.getElementById('monthly-usage').value);
+  
+    // Calculate the number of solar panels required
+    const numPanels = Math.ceil(monthlyUsage / (30 * 4.6 * 0.75)); // Assumes 30 days in a month, 4.6 sunhours per day, and 75% performance rate
+    document.getElementById('num-panels').textContent = numPanels;
+  
+    // Calculate the total roof area required
+    const roofArea = numPanels * 18; // Assumes each panel is 18 square feet
+    document.getElementById('roof-area').textContent = roofArea;
+  
+    // Calculate the amount saved per month
+    const savings = monthlyBill * 0.5; // Assumes a 50% reduction in monthly electric bill with solar panels
+    document.getElementById('savings').textContent = savings;
+  
+    // Show the results
+    document.getElementById('results').classList.remove('d-none');
+  }
+  
+      </script>
 </body>
 </html>
