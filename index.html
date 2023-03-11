@@ -12,49 +12,6 @@
     <title>Kenergy</title>
 </head>
 <body>
-    <div class="container mt-5">
-        <h1>Solar Panel Savings Calculator</h1>
-        <form>
-          <div class="form-group">
-            <label for="monthly-bill">Monthly Electric Bill:</label>
-            <input type="number" class="form-control" id="monthly-bill" placeholder="Enter your monthly electric bill">
-          </div>
-          <div class="form-group">
-            <label for="monthly-usage">Monthly Kilowatt Hour Usage:</label>
-            <input type="number" class="form-control" id="monthly-usage" placeholder="Enter your monthly kilowatt hour usage">
-          </div>
-          <button type="button" class="btn btn-primary m-3" onclick="calculate()">Calculate</button>
-        </form>
-        
-        <div id="results" class="mt-5 d-none">
-          <h2>Results</h2>
-          <p>Number of solar panels required: <span id="num-panels"></span></p>
-          <p>Total roof area required: <span id="roof-area"></span> square feet</p>
-          <p>Amount saved per month: ₱<span id="savings"></span></p>
-        </div>
-      </div>
-      <script>
-        function calculate() {
-    // Get the input values
-    const monthlyBill = Number(document.getElementById('monthly-bill').value);
-    const monthlyUsage = Number(document.getElementById('monthly-usage').value);
-  
-    // Calculate the number of solar panels required
-    const numPanels = Math.ceil(monthlyUsage / (30 * 4.6 * 0.75)); // Assumes 30 days in a month, 4.6 sunhours per day, and 75% performance rate
-    document.getElementById('num-panels').textContent = numPanels;
-  
-    // Calculate the total roof area required
-    const roofArea = numPanels * 18; // Assumes each panel is 18 square feet
-    document.getElementById('roof-area').textContent = roofArea;
-  
-    // Calculate the amount saved per month
-    const savings = monthlyBill * 0.5; // Assumes a 50% reduction in monthly electric bill with solar panels
-    document.getElementById('savings').textContent = savings;
-  
-    // Show the results
-    document.getElementById('results').classList.remove('d-none');
-  }
-  
-      </script>
+    
 </body>
 </html>
