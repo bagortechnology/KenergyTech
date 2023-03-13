@@ -55,7 +55,8 @@
   <div class="container" id="usp">
     <div class="row align-items-center">
       <div class="col-md-6 col-sm-12 text-center text-md-left mx-auto">
-        <h2 class="display-5 mt-3 fw-bold" style="color: #004b23">Experience the power of energy innovation.</h2>
+        <h2 class="display-5 mt-3 fw-bold" style="color: #004b23">Experience the power of energy <span id="energy-header" style="color:#ffc72c"></span> 
+            </h2>
         <p class="lead mb-4 mx-4"> With Kenergy's full-service approach, you can trust us to handle every aspect of your energy project, from design to installation to ongoing maintenance and support.</p>
         <a href="about.html" class="btn btn-lg fw-bold">LEARN MORE</a>
       </div>
@@ -63,6 +64,26 @@
         <img src="assets/solar-video-leaf-1.gif" alt="solar innovation" class="img-fluid p-4 m-4" height="512px" width="512px" >
       </div>
     </div>
-  </div>  
+  </div>
+  <script>
+var typed = new Typed("#energy-header", {
+  strings: ["savings.","sustainability.","innovation."],
+  typeSpeed: 100,
+  backSpeed: 50,
+  loop: true,
+  loopCount: Infinity,
+  smartBackspace: true,
+  onComplete: function (self) {
+    self.options.strings = options.strings;
+    self.options.typeSpeed = options.typeSpeed;
+    self.options.backSpeed = options.backSpeed;
+    self.options.loop = options.loop;
+    self.options.loopCount = options.loopCount;
+    self.start();
+  },
+});
+
+</script>
+</script>  
 </body>
 </html>
