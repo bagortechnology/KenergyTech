@@ -1,8 +1,9 @@
 .navbar {
     background-color: #004b23;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 3px 3px 0px;
   }
   
   .navbar .navbar-nav .nav-link {
-    color: #ffd166;
+    color: #FFC72C;
   }
   
